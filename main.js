@@ -17,11 +17,11 @@ function draw(){
     image(img,0,0,600,450);
     if(status != ""){
         for(i = 0; i < object.length; i++){
-        document.getElementById("status5").innerHTML= "Status : Object(s) Detected";
+        document.getElementById("status").innerHTML= "Status : Object(s) Detected";
         percent = floor(object[i].confidence * 100);
         noFill();
         stroke("#FF0000");
-        rect(object[i].x,object[i].y,object[i].width,objects[i].height);
+        rect(object[i].x,object[i].y,object[i].width,object[i].height);
         text(object[i].label + " " + percent + "%",object[i].x + 15,object[i].y+15);
         }
     }
@@ -40,7 +40,7 @@ function modelLoaded(){
     else{
         console.log(results);
         document.getElementById("bottom-line").innerHTML="There are "+results.length+" object(s) in this picture."
-        object = true;
+        object = results;
     }
     }
 

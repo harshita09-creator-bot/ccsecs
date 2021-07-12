@@ -26,7 +26,7 @@ function modelLoaded(){
     else{
         console.log(results);
         document.getElementById("bottom-line3").innerHTML="There are "+results.length+" objects in this picture."
-        object = true;
+        object = results;
     }
     }
 
@@ -38,8 +38,10 @@ function modelLoaded(){
             percent = floor(object[i].confidence * 100);
             noFill();
             stroke("#FF0000");
-            rect(object[i].x,object[i].y,object[i].width,objects[i].height);
+            rect(object[i].x,object[i].y,object[i].width,object[i].height);
             text(object[i].label + " " + percent + "%",object[i].x + 15,object[i].y+15);
+            console.log(object[i].x);
+            console.log(object[i].y);
             }
         }
     }
